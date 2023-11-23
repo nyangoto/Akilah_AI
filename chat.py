@@ -67,7 +67,8 @@ async def chat(query: Item):
     :return: A response, answer gotten from retrieving information from documents
     """
     results = search_index(query.query, embeddings)
-    return results["answer"]
+    # return results["answer"]
+    return {"answer": results["answer"], "confidence_score": results["score"]}
 
 @app.get("/docs", include_in_schema=False)
 async def custom_swagger_ui_html():
