@@ -1,9 +1,18 @@
-version: '3'
+version: '3.9'
+
+# services:
+#   app:
+#     image: ${DOCKER_IMAGE}
+#     build:
+#       context: .
+#     ports:
+#       - "8000:8000"
+
 
 services:
-  app:
-    image: ${DOCKER_IMAGE}
+  api:
     build:
       context: .
+      dockerfile: ./docker/Dockerfile
     ports:
       - "8000:8000"

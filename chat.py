@@ -6,20 +6,24 @@ you can comment query = str(input("Ask Something:  ")) after testing
 """
 
 import os
+import time
 from rag_feat.main import search_index
 from langchain.embeddings.openai import OpenAIEmbeddings
 from fastapi import FastAPI
 from langserve import add_routes
 import uvicorn
 # from fastapi import APIRouter
+import multiprocessing
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.models import OpenAPI
 from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi.responses import JSONResponse
+from discord_bot.akila_discord_bot import client
 
 
 open_ai= os.getenv("OPENAI_API_KEY")
+
 
 embeddings = OpenAIEmbeddings(openai_api_key=open_ai)
 
@@ -49,7 +53,7 @@ app = FastAPI()
 # )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=["http://127.0.0.1:8000"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -81,5 +85,4 @@ async def get_openapi():
 # app.include_router("/chat")
 
 if __name__ == "__main__":
-
     uvicorn.run(app, host="127.0.0.1", port=8000)
