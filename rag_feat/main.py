@@ -10,13 +10,14 @@ from langchain.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.vectorstores import FAISS
 import pinecone
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 # from langchain.prompts import PromptTemplate
 
-load_dotenv()
+# load_dotenv()
 
 
-open_ai= os.getenv("OPENAI_API_KEY")
+open_ai= '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'
+#os.getenv("OPENAI_API_KEY")
 
 
 def detect_document_type(document_path):
