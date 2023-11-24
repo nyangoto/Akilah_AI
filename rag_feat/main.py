@@ -16,7 +16,7 @@ import pinecone
 # load_dotenv()
 
 
-open_ai= ''
+open_ai= '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'
 #os.getenv("OPENAI_API_KEY")
 
 
