@@ -4,11 +4,14 @@ import { IconButton } from '../../SHARED/IconButton/IconButton';
 export const IconProfileNavIcons = () => {
   return (
     <div className="text-background-color">
-      <IconButton name="material-symbols-light:window-outline" />
-      <IconButton name="wi:time-5" />
-      <IconButton name="cil:moon" />
-      <IconButton name="carbon:load-balancer-pool" />
-      <IconButton name="game-icons:expand" />
+      <IconButton
+        className="mt-5"
+        name="material-symbols-light:window-outline"
+      />
+      <IconButton className="mt-5" name="wi:time-5" />
+      <IconButton className="mt-5" name="cil:moon" />
+      <IconButton className="mt-5" name="carbon:load-balancer-pool" />
+      <IconButton className="mt-5" name="game-icons:expand" />
     </div>
   );
 };
