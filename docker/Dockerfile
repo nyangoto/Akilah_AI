@@ -1,5 +1,5 @@
 # Use the official Python image as a base image
-FROM python:3.8
+FROM python:3.9-bullseye
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
