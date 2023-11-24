@@ -16,7 +16,8 @@ import pinecone
 # load_dotenv()
 
 
-open_ai= os.getenv("OPENAI_API_KEY")
+open_ai= ''
+#os.getenv("OPENAI_API_KEY")
 
 
 def detect_document_type(document_path):

@@ -23,7 +23,7 @@ from discord_bot.akila_discord_bot import client
 
 
 open_ai= os.getenv("OPENAI_API_KEY")
-token = "os.getenv("OPENAI_API_KEY")
+
 
 embeddings = OpenAIEmbeddings(openai_api_key=open_ai)
 
@@ -86,4 +86,3 @@ async def get_openapi():
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
-
