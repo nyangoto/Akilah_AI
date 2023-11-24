@@ -9,6 +9,7 @@ export const ChatSectionTextArea: React.FC<ChatSectionTextAreaProps> = ({
   addMessage,
 }) => {
   const [question, setQuestion] = useState<string>('');
+
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setQuestion(e.target.value);
     e.target.style.height = 'auto';
@@ -22,14 +23,22 @@ export const ChatSectionTextArea: React.FC<ChatSectionTextAreaProps> = ({
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendClick();
+    }
+  };
+
   return (
     <div className="absolute bottom-0 w-[100%] bg-light-color p-5">
       <div className="relative">
         <textarea
-          className="h-auto w-[95%] resize-none rounded  border-none bg-light-color p-2  text-[1rem] leading-5  outline-none"
+          className="h-auto w-[95%] resize-none rounded border-none bg-light-color p-2 text-[1rem] leading-5 outline-none"
           name="body"
           onChange={handleInputChange}
-          placeholder="WHat do you want to know?"
+          onKeyDown={handleKeyDown}
+          placeholder="What do you want to know?"
           rows={2}
           value={question}
         />
